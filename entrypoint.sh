@@ -8,7 +8,9 @@ else
     VERSION=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
 fi
 
-tomato set package.version "$VERSION" "$INPUT_TOML_PATH/Cargo.toml"
+PATH=$PATH:/
+
+./tomato set package.version "$VERSION" "$INPUT_TOML_PATH/Cargo.toml"
 
 # Taken from https://github.com/zhxiaogg/cargo-static-build, unsure if all needed or not
 
